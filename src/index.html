@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CrowdFunding</title>
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-reboot.min.css" rel="stylesheet" />
+    <!-- JS -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <header>
+    <div class="container">
+      <h1 class="h1" id="pageTitle">Crowdfunding website</h1>
+      <hr />
+    </div>
+  </header>
+  <body>
+    <div class="container">
+      <p class="text-body">Welcome! Please create a new project</p>
+      <!-- Create new project button-->
+      <button
+        id="createNewProjectButton"
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#createNewProjectModal"
+      >
+        Create a new crowdfunding project
+      </button>
+      <!-- New project modal-->
+      <div
+        id="createNewProjectModal"
+        class="modal fade"
+        tabindex="-1"
+        role="dialog"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg"
+          role="document"
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="createNewProjectModalTitle" class="modal-title">
+                Create a new crowdfunding project
+              </h5>
+              <button
+                id="createNewProjectModalCloseButton"
+                type="button"
+                class="close"
+                data-dismiss="modal"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label id="createNewProjectModalOwnerLabel">Owner</label>
+                  <!-- TODO: automatically load the owner account's address-->
+                  <select class="form-control" id="createNewProjectModalOwnerSelect"></select>
+                </div>
+                <div class="form-group">
+                  <label id="createNewProjectModalProjectNameLabel"
+                    >Project image</label
+                  >
+                  <div class="input-group mb-3">
+                    <div class="custom-file">
+                      <input
+                        type="file"
+                        class="custom-file-input"
+                        id="createNewProjectModalProjectImage"
+                      />
+                      <label class="custom-file-label" for="inputGroupFile01"
+                        >Choose file</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label id="createNewProjectModalProjectNameLabel"
+                    >Project name</label
+                  >
+                  <input
+                    id="createNewProjectModalProjectNameInput"
+                    type="text"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label id="createNewProjectModalProjectDescriptionLabel"
+                    >Project description</label
+                  >
+                  <textarea
+                    id="createNewProjectModalProjectDescriptionInput"
+                    class="form-control"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col">
+                      <label id="createNewProjectModalMinimumBudgetLabel"
+                        >Minimum raising fund</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          id="createNewProjectModalMinimumBudgetInput"
+                          type="number"
+                          class="form-control text-right"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">ETH</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <label id="createNewProjectModalDurationLabel"
+                        >Duration</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          id="createNewProjectModalDurationInput"
+                          type="number"
+                          class="form-control text-right"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">days</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                id="createNewProjectModalSaveChangesButton"
+                type="button"
+                class="btn btn-primary"
+              >
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div id="loadProjects">
+        <p class="text-body">Loading projects</p>
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
